@@ -142,8 +142,8 @@ export default function Dashboard() {
           const avatar = avatars[member.username] || favicon;
 
           return (
-            <article key={member.username || index} className="card text-center">
-              <header className="card-header mb-8 flex items-center justify-center gap-6">
+            <article key={member.username || index} className="card">
+              <header className="card-header">
                 <img
                   src={avatar}
                   alt={`${member.name}'s GitHub avatar`}
