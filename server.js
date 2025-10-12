@@ -2,17 +2,10 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
-// Load environment variables
-dotenv.config({ path: '.env.local' });
+dotenv.config({ path: '.env' });
 
 const app = express();
-const PORT = 3001;
 
-// Middleware
-app.use(cors());
-app.use(express.json());
-
-// GitHub API route
 app.post('/api/fetch-stats', async (req, res) => {
   try {
     const { team } = req.body;

@@ -1,5 +1,5 @@
 import React from "react";
-import "./SortingControls.css";
+import "../styles/SortingControls.css";
 
 const SortingControls = ({
   sortBy,

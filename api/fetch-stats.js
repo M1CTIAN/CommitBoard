@@ -1,26 +1,18 @@
 export default async function handler(req, res) {
   const ALLOWED_ORIGINS = [
     "https://commit-board.vercel.app", // production
-    "http://localhost:3000", // common dev port
-    "http://localhost:5173", // Vite dev server
-    "http://localhost:5174", // Vite dev server (alternate port)
-    "http://localhost:4173", // Vite preview
-    "http://127.0.0.1:3000",
-    "http://127.0.0.1:5173",
-    "http://127.0.0.1:5174",
-    "http://127.0.0.1:4173"
+    "http://localhost:3000", // vercel dev port
+    "http://localhost:5173"  // vite dev port
   ];
   
   // CORS
   const origin = req.headers.origin;
-  console.log("Request origin:", origin);
   
   // In development, allow requests without origin (direct server requests)
-  const isAllowedOrigin = !origin || ALLOWED_ORIGINS.includes(origin);
+  const isAllowedOrigin = ALLOWED_ORIGINS.includes(origin); //removed null origin access
   
   if (!isAllowedOrigin) {
-    console.log("Forbidden origin:", origin);
-    return res.status(403).json({ error: "Forbidden origin" });
+    return res.status(403).json({ error: "Forbidden" });
   }
 
   const allowedOrigin = origin || ALLOWED_ORIGINS[0];

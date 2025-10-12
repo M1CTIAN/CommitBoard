@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import GitHubCalendar from "react-github-calendar";
 import SortingControls from "./SortingControls";
 import teamData from "../data/team.json";
-import favicon from "/favicon.ico"; // fallback image
+import favicon from "/favicon.ico";
 import "../styles/dashboard.css";
 
 export default function Dashboard() {
@@ -19,7 +19,7 @@ export default function Dashboard() {
         setLoading(true);
         setError(null);
         
-        const apiUrl = import.meta.env.DEV ? 'http://localhost:3001/api/fetch-stats' : '/api/fetch-stats';
+        const apiUrl ='/api/fetch-stats';
         
         const res = await fetch(apiUrl, {
           method: "POST",
